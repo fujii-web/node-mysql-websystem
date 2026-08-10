@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 router.get('/', function (req, res, next) {
   const isAuth = req.isAuthenticated();
   res.render('signup', {
-    title: 'Sign up',
+    title: 'サインアップ',
     isAuth: isAuth,
   });
 });
@@ -23,7 +23,7 @@ router.post('/', function (req, res, next) {
     .then(async function (result) {
       if (result.length !== 0) {
         res.render("signup", {
-          title: "Sign up",
+          title: "サインアップ",
           errorMessage: ["このユーザ名は既に使われています"],
           isAuth: isAuth,
         })
@@ -37,14 +37,14 @@ router.post('/', function (req, res, next) {
           .catch(function (err) {
             console.error(err);
             res.render("signup", {
-              title: "Sign up",
+              title: "サインアップ",
               errorMessage: [err.sqlMessage],
               isAuth: isAuth,
             });
           });
       } else {
         res.render("signup", {
-          title: "Sign up",
+          title: "サインアップ",
           errorMessage: ["パスワードが一致しません"],
           isAuth: isAuth,
         });
@@ -53,7 +53,7 @@ router.post('/', function (req, res, next) {
     .catch(function (err) {
       console.error(err);
       res.render("signup", {
-        title: "Sign up",
+        title: "サインアップ",
         errorMessage: [err.sqlMessage],
         isAuth: isAuth,
       });

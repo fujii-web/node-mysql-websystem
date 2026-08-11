@@ -15,15 +15,16 @@
       <form action="/" method="post">
         <label>タスクの追加</label>
         <input required type="text" name="add" placeholder="何をする?"/>
-        <input class="btn btn-primary" type="submit" value="追加"/>
+        <p><input class="btn btn-primary" type="submit" value="追加"/>
+        <input class="btn btn-primary" type="reset" value="キャンセル"/></p>
       </form>
     </div>
     <div class="col-md-6">
-      <ul>
+      <ol>
         <% for(let todo of todos){ %>
-          <li><span><%= todo.content %></span></li>
+          <li><input type="checkbox" name="todo"><span><%= todo.content %></span></li>
         <% } %>
-      </ul>
+      </ol>
     </div>
   </div>
 </div>
